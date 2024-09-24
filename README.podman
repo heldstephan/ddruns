@@ -121,6 +121,7 @@ First, build the IPs using ddcolors:
 
 ```
 cd /mnt/ddruns/;
+mkdir IPs;
 ./create_mips.sh
 ```
 
@@ -128,6 +129,8 @@ This uses 8 threads per default. You can change it via the parm that is passed t
 
 Solve the IPs with scip.
 ```
+cd /mnt/ddruns/;
+mkdir scip_runs;
 ./solve_mips.sh | sh
 ```
 The results are written into scip_runs/.
@@ -135,11 +138,14 @@ Ideally you would like to do this in parallel, piping to `parallel -j 8`, but in
 
 For r1000.1c.log you need a little more time (3 h on modern EPYC CPUs):
 ```
+cd /mnt/ddruns/;
+mkdir scip_long_runs;
 ./solve_mips_long.sh | sh
 ```
 
 Finally, you may solve  r1000.1c.edd.batch and DSJC500.9.batch (new best lower bound) with cplex (and unsafe floating poing arithmetic):
 ```
+
 cd /mnt/ddruns/cplex_runs
 ./solve_mips.sh
 ```
