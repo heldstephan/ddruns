@@ -1,0 +1,6 @@
+read ../IPs/DSJC500.9.col.edd.lp
+set emphasis mip 3
+set threads 4
+set timelimit 36000
+optimize
+quit

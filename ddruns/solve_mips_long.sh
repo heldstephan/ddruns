@@ -1,0 +1,3 @@
+cat long_runs.set > scip_long_runs/r1000.1c.edd.lp.set ; echo "certificate/filename=\"scip_long_runs/r1000.1c.edd.lp.cert\"" >> scip_long_runs/r1000.1c.edd.lp.set  ; scip -s scip_long_runs/r1000.1c.edd.lp.set  -f IPs/r1000.1c.col.edd.lp > scip_long_runs/r1000.1c.edd.lp.log 2>&1
+#cat long_runs.set > scip_long_runs/DSJC500.9.edd.lp.set ; echo "certificate/filename=\"scip_long_runs/DSJC500.9.edd.lp.cert\"" >> scip_long_runs/DSJC500.9.edd.lp.set  ; scip -s scip_long_runs/DSJC500.9.edd.lp.set  -f IPs/DSJC500.9.col.edd.lp > scip_long_runs/DSJC500.9.edd.lp.log 2>&1
+# cat unlimited.set > scip_long_runs/DSJC500.9.edd.lp.set ;  scip -s scip_long_runs/DSJC500.9.edd.lp.set  -f IPs/DSJC500.9.col.edd.lp > scip_long_runs/DSJC500.9.edd.lp.log 2>&1

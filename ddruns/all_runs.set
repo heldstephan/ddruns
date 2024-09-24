@@ -1,0 +1,3 @@
+limits/time = 3600
+limits/nodes = 100000
+exact/enabled = TRUE

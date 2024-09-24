@@ -1,0 +1,1 @@
+ ls IPs/*lp   | gawk '{ ; instance = $1; gsub(/IPs\//,"",instance); gsub(/\.col/,"",instance);  logprefix="scip_runs/"instance;  print "cat all_runs.set > "logprefix".set ; echo \"certificate/filename=\\\""logprefix".cert\\\"\" >> "logprefix".set  ; scip -s "logprefix".set  -f " $1 " > "logprefix".log 2>&1" ;}'
