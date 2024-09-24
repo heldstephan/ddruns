@@ -26,7 +26,7 @@ Start podman (alternatively log into your existing Ubuntu server):
 
 ```
 podman run --interactive --tty --name ddcolors --volume /tmp/.X11-unix:/tmp/.X11-unix \
---env DISPLAY --device /dev/dri --device /dev/snd --device /dev/input \
+--env DISPLAY  \
 --volume /etc/localtime:/etc/localtime:ro --volume ${HOME}/podman_sharing/:/mnt:z ubuntu:22.04
 ```
 
