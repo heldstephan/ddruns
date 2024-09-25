@@ -69,17 +69,17 @@ mkdir  build
 cd build
 cmake ../code  -DVIPRCOMP=off
 make -j 16
-make install
+# make install
 
-cd /mnt/scip/
-git clone https://github.com/scipopt/zimpl
-cd zimpl
-git checkout b3aa64ad38c67b4c73f1c18600a217563109b2d2 -b b3aa64ad38c67b4c73f1c18600a217563109b2d2
-mkdir  build
-cd build
-cmake ..
-make -j 16
-make install
+# cd /mnt/scip/
+# git clone https://github.com/scipopt/zimpl
+# cd zimpl
+# git checkout b3aa64ad38c67b4c73f1c18600a217563109b2d2 -b b3aa64ad38c67b4c73f1c18600a217563109b2d2
+# mkdir  build
+# cd build
+# cmake ..
+# make -j 16
+# make install
 
 cd /mnt/scip/
 git clone https://github.com/scipopt/scip.git
