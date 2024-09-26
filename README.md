@@ -3,6 +3,8 @@ using the full  decision diagram formulation for graph coloring.
 Arising IPs are solved exactly with SCIP exact.
 To compile SCIP, we recommend to use Ubuntu 22.04, e.g. as a podman image.
 
+NOTE: The total size of SCIP certificate file will rise to ~50 GB (uncompressed).
+
 
 First, we describe how to setup an Ubuntu 22.04 podman.
 You find more information here:
@@ -148,4 +150,10 @@ Finally, you may solve  r1000.1c.edd.batch and DSJC500.9.batch (new best lower b
 
 cd /mnt/ddruns/cplex_runs
 ./solve_mips.sh
+```
+
+Finally, we zip the certificate files to release file space:
+```
+cd /mnt/ddruns/
+find ddruns/  -name *.cert -exec bzip2 {} \;
 ```
