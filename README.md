@@ -12,14 +12,17 @@ https://community.endlessos.com/t/running-ubuntu-with-podman/10506
 
 ```
 podman image pull ubuntu:22.04
+```
 
-# Create a work dir, e.g.
+Create a work dir, e.g.
 Clone this repository into a new directory, here called  ~/podman_sharing.
+
 ```
 git clone TBD ~/podman_sharing
 ```
 
 Make  cplex studio accessible. It is used to write out LP files. The CPLEX version is of minor importance.
+
 ```
 rsync  -vau  <installaciton-of-cplex>/CPLEX_Studio126/ ~/podman_sharing/CPLEX_Studio126/
 ```
@@ -32,16 +35,15 @@ podman run --interactive --tty --name ddcolors --volume /tmp/.X11-unix:/tmp/.X11
 --volume /etc/localtime:/etc/localtime:ro --volume ${HOME}/podman_sharing/:/mnt:z ubuntu:22.04
 ```
 
-
 Make sure that following packages are installed on your (podman) Ubuntu:
 
 ```
 apt-get update; apt-get -y dist-upgrade
 apt install libtbb-dev libopenblas-dev libgmp*dev libboost-all-dev libmpfr*dev build-essential cmake libreadline*dev *bison*dev flex libblas-dev liblapack-dev pkgconf gawk git parallel
-````
+```
 
 
-Download and compile SCIP and its dependencies:
+Download and compile SCIP and its dependencies with given revisions:
 ```
 cd /mnt/scip/
 git clone https://github.com/scipopt/papilo.git
@@ -71,17 +73,6 @@ mkdir  build
 cd build
 cmake ../code  -DVIPRCOMP=off
 make -j 16
-# make install
-
-# cd /mnt/scip/
-# git clone https://github.com/scipopt/zimpl
-# cd zimpl
-# git checkout b3aa64ad38c67b4c73f1c18600a217563109b2d2 -b b3aa64ad38c67b4c73f1c18600a217563109b2d2
-# mkdir  build
-# cd build
-# cmake ..
-# make -j 16
-# make install
 
 cd /mnt/scip/
 git clone https://github.com/scipopt/scip.git
@@ -107,6 +98,7 @@ make -j 16
 
 #Finally, download & build the flow_extraction branch from ddcolors:
 cd /mnt/
+```
 git clone https://github.com/trewes/ddcolors.git
 cd ddcolors
 git checkout origin/flow_extraction -b flow_extraction
@@ -114,8 +106,7 @@ mkdir  build
 cd build
 cmake .. -DCPLEX_ROOT_DIR=/mnt/CPLEX_Studio126/cplex -DEXACTCOLORS_ROOT_DIR=/mnt/exactcolors
 make -j 16
-
-
+```
 
 #### Experiments ####
 
@@ -147,7 +138,6 @@ mkdir scip_long_runs;
 
 Finally, you may solve  r1000.1c.edd.batch and DSJC500.9.batch (new best lower bound) with cplex (and unsafe floating poing arithmetic):
 ```
-
 cd /mnt/ddruns/cplex_runs
 ./solve_mips.sh
 ```
