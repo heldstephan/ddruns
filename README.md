@@ -1,5 +1,7 @@
 This README describes how to reproduce the coloring results with the ddcolor program,
 using the full  decision diagram formulation for graph coloring.
+It was written by Timo Brand and Stephan Held and released under the MIT License (see LICENSE file).
+
 Arising IPs are solved exactly with SCIP exact.
 To compile SCIP, we recommend to use Ubuntu 22.04, e.g. as a podman image.
 
@@ -96,12 +98,23 @@ make -j 16
 ```
 
 
-#Finally, download & build the flow_extraction branch from ddcolors:
+
+Finally, download ddcolors.zip from Bonndata  https://bonndata.uni-bonn.de/dataset.xhtml?persistentId=doi:10.60507/FK2/ZE9C3L
+```
 cd /mnt/
+unzip <path-to-ddcolors.zip>/ddcolors.zip
+cd ddcolors
+```
+
+Alternatively, you can download & build the flow_extraction branch from the ddcolors github repository:
 ```
 git clone https://github.com/trewes/ddcolors.git
 cd ddcolors
 git checkout origin/flow_extraction -b flow_extraction
+```
+
+Then, build it:
+```
 mkdir  build
 cd build
 cmake .. -DCPLEX_ROOT_DIR=/mnt/CPLEX_Studio126/cplex -DEXACTCOLORS_ROOT_DIR=/mnt/exactcolors
